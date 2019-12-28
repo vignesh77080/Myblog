@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -129,7 +130,10 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'vignesh.yes97@gmail.com'
-EMAIL_HOST_PASSWORD = 'jwaodbczbolxsomm'  
+EMAIL_HOST_PASSWORD = '*****'  
 
 MEDIA_ROOT = os.path.join( BASE_DIR , 'media' ) 
 MEDIA_URL = '/media/' 
+
+#to hide the secret key
+SECRET_KEY = config('SECRET_KEY')
