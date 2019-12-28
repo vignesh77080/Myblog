@@ -1,0 +1,38 @@
+{% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+{% endif %}
+{% if user.is_authenticated %}
+    <h1>
+        hellooooooooo {{ user }}
+    </h1>
+    <p><a href='{% url 'logout' %}'> logout </a></p>
+    <p><a href='{% url 'user_login:profile' %}'> profile </a></p>
+    <p><a href="{% url 'password_change' %}">change password?</a></p>
+    <p><a href="{% url 'password_reset' %}">lost password?</a></p>
+{% else %}
+    <h1>  thanks, you have logged out </h1>
+    <a href='{% url 'login' %}'> login </a>
+{% endif %}
+{% if post %}
+<div>
+    <p> <a href='{% url 'user_login:createpost'  %}'> create the post </a> </p>
+    {% for object in post %}
+        <div class='{{ object.created_by }}' id='{{ object.id }}' >
+            <div><p>{{ object.title }}</p></div>
+            <div><p>{{ object.last_modified }}</p></div>
+            <div><p>{{ object.created_by }}</p></div>
+            <div><p>{{ object.type_blog }}</p></div>
+            <div><p>{{ object.blog_des }}</p></div>
+            {% if object.created_by == user  %}
+                <p> <a href='{% url 'user_login:editpost' object.id  %}'> edit the post </a> </p>
+                <p> <a href='{% url 'user_login:deletepost' object.id  %}'> delete the post </a> </p>
+            {% else %}
+            <p> <a href='{% url 'user_login:viewpost' object.id  %}'> view the post </a> </p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endif %}

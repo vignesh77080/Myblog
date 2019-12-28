@@ -1,0 +1,9 @@
+<form method="POST" >
+    {% csrf_token %}
+    <h1> Are you sure to delete the post of {{ title }} ? </h1>
+    <input type='submit' name = 'first_button' value='yes'>
+    <input type='submit' name = 'second_button' value='no'>
+</form>
+
+
+

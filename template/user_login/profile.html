@@ -1,0 +1,11 @@
+
+<form method="POST" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ u_form.as_p }}
+    {{ p_form.as_p }}  <img src='{{ user.profileuser.profilepics.url }}' width="200px" height="200px">
+    <input type='submit' value='update'>
+</form>
+
+<p><a href='/'> back </a></p>
+
+
