@@ -26,7 +26,7 @@ SECRET_KEY = 'dp-vdw23ert&2as(5z(&j)=b$7m^ky-d@)9nz@a8sdsa=0d868'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myappdjpy.herokuapp.com']
 
 
 # Application definition
