@@ -19,7 +19,6 @@ def home(request):
 
     return render(request, 'user_login/home.html', context)
 
-@login_required(login_url= 'login')
 def register(request):
 
     if request.method == 'POST':
