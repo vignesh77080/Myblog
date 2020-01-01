@@ -33,10 +33,7 @@ def register(request):
                 if user_creation is not None:
                     user_creation.save()
                     messages.success(request, f'your profile has been created, {username }')
-                    send_mail('new account has been created','welcome to our blog',
-                            settings.EMAIL_HOST_USER,
-                            form.cleaned_data.get('email'), fail_silently=False, 
-                            )
+                    send_mail('new account has been created','welcome to our blog',settings.EMAIL_HOST_USER, [form.cleaned_data.get('email')] , fail_silently=False)
                     return render(request, 'user_login/register_success.html' )
             else:
                 messages.error(request, 'something went wrong , try again')

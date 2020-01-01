@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-#from decouple import config
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +27,7 @@ SECRET_KEY = 'dp-vdw23ert&2as(5z(&j)=b$7m^ky-d@)9nz@a8sdsa=0d868'
 DEBUG = True
 
 ALLOWED_HOSTS = ['myappdjpy.herokuapp.com']
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,8 +130,7 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vignesh.yes97@gmail.com'
-EMAIL_HOST_PASSWORD = '*******'  
-
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 MEDIA_ROOT = os.path.join( BASE_DIR , 'media' ) 
 MEDIA_URL = '/media/' 

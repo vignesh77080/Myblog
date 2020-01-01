@@ -19,7 +19,7 @@
 <div>
     <p> <a href='{% url 'user_login:createpost'  %}'> create the post </a> </p>
     {% for object in post %}
-        <div class='{{ object.created_by }}' id='{{ object.id }}' >
+        <div class='{{ object.created_by }}' id='{{ object.id }}'  style="border: 1px solid;float: left;width: 300px;height: 300px;text-align: center;margin: 20px;">
             <div><p>{{ object.title }}</p></div>
             <div><p>{{ object.last_modified }}</p></div>
             <div><p>{{ object.created_by }}</p></div>
